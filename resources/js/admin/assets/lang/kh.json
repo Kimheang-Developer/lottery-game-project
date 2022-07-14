@@ -1,0 +1,20 @@
+{
+    "sidebar": {
+        "dashboard": "ទំព័រដើម",
+        "livegame": "លទ្ធផល",
+        "withdraw": "របាយការណ៍ដកប្រាក់",
+        "topup": "របាយការណ៍ដាក់ប្រាក់",
+        "bank": "ធនាគារ",
+        "user": "របាយការណ៍អតិថិជន",
+        "userlist": "ទិន្នន័យអតិថិជន",
+        "history": "ប្រវត្តិអតិថិជន",
+        "authentication": "Authentication",
+        "logout":"ចាកចេញ"
+    },
+    "dashboard": {
+        
+    },
+    "authentication": {
+        
+    }
+}

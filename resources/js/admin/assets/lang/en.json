@@ -1,0 +1,17 @@
+{
+    "sidebar": {
+        "dashboard": "Dashboard",
+        "livegame": "Live Game",
+        "withdraw": "Withdraw",
+        "topup": "Top Up",
+        "bank": "Bank",
+        "user": "User",
+        "userlist": "User List",
+        "history": "History",
+        "authentication": "Authentication",
+        "logout":"Logout"
+    },
+    "dashboard": {
+        "title": "Homepage"
+    }
+}

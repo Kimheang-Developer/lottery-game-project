@@ -1,0 +1,17 @@
+{
+    "sidebar": {
+        "dashboard": "แผงควบคุม",
+        "livegame": "ผลลัพธ์",
+        "withdraw": "รายงานการถอนเงิน",
+        "topup": "รายงานการฝากเงิน",
+        "bank": "ธนาคาร",
+        "user": "รายงานลูกค้า",
+        "userlist": "ข้อมูลลูกค้า",
+        "history": "ប្រវត្តិ",
+        "authentication": "ចាត់ការទូទៅ",
+        "logout":"ចាកចេញ"
+    },
+    "dashboard": {
+        "title": "Homepage"
+    }
+}
