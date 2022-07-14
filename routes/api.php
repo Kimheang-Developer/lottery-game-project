@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\BankController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +20,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['as' => 'api.', 'namespace' => 'App\Http\Controllers\Api'], function() {
+    Route::apiResources([
+        'bank' => BankController::class,
+        'user' => UserController::class,
+        'withdraw' => WithdrawController::class,
+        'topup' => TopUpController::class,
+    ]);
+});
+
+Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::post('register', [RegisterController::class, 'register'])->name('register');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('heck-auth', [LoginController::class, 'checkAuth'])->name('logout');

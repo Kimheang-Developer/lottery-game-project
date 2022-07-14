@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Bank;
 
 class BankController extends Controller
 {
@@ -14,7 +16,7 @@ class BankController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(['data' => Bank::all()], 200);
     }
 
     /**
@@ -35,7 +37,21 @@ class BankController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(!auth("api")->user()->is_admin) {
+            return response()->json(['message' => 'Unauthorize'], 500);
+        }
+        $this->validate($request, [
+            'name' => 'required',
+            'number' => 'required',
+            'branch' => 'required',
+        ]);
+        $bank = new Bank();
+        $bank->user_id = Auth::user()->id;
+        $bank->name = $request->input('name');
+        $bank->number = $request->input('number');
+        $bank->branch = $request->input('branch');
+        $bank->save();
+        return response()->json(['data' => $bank, 'message' => 'Created successfully'], 201);
     }
 
     /**
@@ -46,7 +62,8 @@ class BankController extends Controller
      */
     public function show($id)
     {
-        //
+        $bank = Bank::findOrFail($id);
+        return response()->json(['data' => $bank], 200);
     }
 
     /**
@@ -69,7 +86,21 @@ class BankController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(!auth("api")->user()->is_admin) {
+            return response()->json(['message' => 'Unauthorize'], 500);
+        }
+        $bank = Bank::findOrFail($id);
+        $this->validate($request, [
+            'name' => 'required',
+            'number' => 'required',
+            'branch' => 'required',
+        ]);
+        $bank->user_id = Auth::user()->id;
+        $bank->name = $request->input('name');
+        $bank->number = $request->input('number');
+        $bank->branch = $request->input('branch');
+        $bank->save();
+        return response()->json(['data' => $bank, 'message' => 'Updated successfully'], 200);
     }
 
     /**
@@ -80,6 +111,11 @@ class BankController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(!auth("api")->user()->is_admin) {
+            return response()->json(['message' => 'Unauthorize'], 500);
+        }
+        $bank = Bank::findOrFail($id);
+        $bank->delete();
+        return response()->json(['message' => 'Deleted successfully'], 200);
     }
 }

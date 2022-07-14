@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->float('amount', 8, 2);
-            $table->enum('status', ['1', '0']);
+            $table->enum('status', ['1', '0'])->default('1');
             $table->timestamps();
         });
     }

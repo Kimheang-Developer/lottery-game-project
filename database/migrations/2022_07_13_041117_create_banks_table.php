@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('number');
             $table->string('branch');
-            $table->enum('status', ['1', '0']);
+            $table->enum('status', ['1', '0'])->default('1');
             $table->timestamps();
         });
     }

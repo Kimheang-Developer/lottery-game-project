@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Routes from '../website/routes/index'
 
 const App = () => {
     return (
         <>
-            <h1>Website App</h1>
+            <Routes/>
         </>
     )
 }
