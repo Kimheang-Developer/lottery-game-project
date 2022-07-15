@@ -50,6 +50,18 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Role');
     }
 
+    public function withdraws() {
+        return $this->hasMany('App\Models\Withdraw');
+    }
+
+    public function banks() {
+        return $this->hasMany('App\Models\Bank');
+    }
+
+    public function topups() {
+        return $this->hasMany('App\Models\TopUp');
+    }
+
     public function isAdminOrSuperAdmin() {
         return $this->hasAnyRole(['admin', 'superAdmin']);
     }

@@ -1,33 +1,25 @@
 import React, { useState, useEffect } from 'react'
-import 'react-tabulator/lib/styles.css';
-import { ReactTabulator } from 'react-tabulator'
-import '../../../assets/admin/css/main.css'
 
 const Index = () => {
-    const [data, setData] = useState([])
-
-    const columns=[
-        {title:"Name", field:"name"},
-        {title:"Age", field:"age"},
-        {title:"DOB", field:"dob"},    
-        {title:"Favourite Color", field:"col"},
-        {title: "Details", field: "details"},
-    ]
     return (
         <>
             <div className='flex items-center justify-between'>
-                <h2 className='my-6 text-lg font-medium text-gray-700'>Withdraw</h2>
+                <h2 className='my-6 text-lg font-medium text-gray-700'>Withdraw List</h2>
             </div>
-            <div className='bg-white border border-slate-200 rounded-md p-5'>
-                <div>
-                    <ReactTabulator
-                        columns={columns}
-                        layout={"fitColumns"}
-                    />
-                </div>
-                <div className='flex items-center justify-between'>
-
-                </div>
+            <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+                <table className="w-full text-sm text-left text-gray-500">
+                    <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" className="py-3 px-6">Name</th>
+                            <th scope="col" className="py-3 px-6">Amount</th>
+                            <th scope="col" className="py-3 px-6">Status</th>
+                            <th scope="col" className="py-3 px-6">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
             </div>
         </>
     )

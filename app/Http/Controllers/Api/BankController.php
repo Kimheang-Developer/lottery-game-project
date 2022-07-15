@@ -37,9 +37,6 @@ class BankController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth("api")->user()->is_admin) {
-            return response()->json(['message' => 'Unauthorize'], 500);
-        }
         $this->validate($request, [
             'name' => 'required',
             'number' => 'required',

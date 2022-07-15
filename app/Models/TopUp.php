@@ -15,4 +15,8 @@ class TopUp extends Model
         'receipt_img',
         'status'
     ];
+
+    public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
 }

@@ -16,4 +16,8 @@ class Bank extends Model
         'branch',
         'status'
     ];
+
+    public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
 }

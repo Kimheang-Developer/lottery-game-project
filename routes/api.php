@@ -33,4 +33,4 @@ Route::group(['as' => 'api.', 'namespace' => 'App\Http\Controllers\Api'], functi
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::post('register', [RegisterController::class, 'register'])->name('register');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('heck-auth', [LoginController::class, 'checkAuth'])->name('logout');
+Route::get('check-auth', [LoginController::class, 'checkAuth'])->name('logout');

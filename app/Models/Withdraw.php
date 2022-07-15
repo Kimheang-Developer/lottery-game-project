@@ -14,4 +14,8 @@ class Withdraw extends Model
         'amount',
         'status'
     ];
+
+    public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
 }

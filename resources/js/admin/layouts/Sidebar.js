@@ -45,7 +45,7 @@ const Sidebar = () => {
                     <ul>
                         <li className='relative'>
                             <NavLink
-                                to="/dashboard"
+                                to="admin/dashboard"
                                 className={({ isActive }) =>
                                     isActive ? 'bg-gray-700 w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out' : 'w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out'
                                 }
@@ -60,7 +60,7 @@ const Sidebar = () => {
                     <ul>
                         <li className='relative'>
                             <NavLink
-                                to="/game"
+                                to="admin/game"
                                 className={({ isActive }) =>
                                     isActive ? 'bg-gray-700 w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out' : 'w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out'
                                 }
@@ -73,7 +73,7 @@ const Sidebar = () => {
                         </li>
                         <li className='relative'>
                             <NavLink
-                                to="/withdraw"
+                                to="admin/withdraw"
                                 className={({ isActive }) =>
                                     isActive ? 'bg-gray-700 w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out' : 'w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out'
                                 }
@@ -86,7 +86,7 @@ const Sidebar = () => {
                         </li>
                         <li className='relative'>
                             <NavLink
-                                to="/topup"
+                                to="admin/topup"
                                 className={({ isActive }) =>
                                     isActive ? 'bg-gray-700 w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out' : 'w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out'
                                 }
@@ -99,7 +99,7 @@ const Sidebar = () => {
                         </li>
                         <li className='relative'>
                             <NavLink
-                                to="/bank"
+                                to="admin/bank"
                                 className={({ isActive }) =>
                                     isActive ? 'bg-gray-700 w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out' : 'w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out'
                                 }
@@ -112,7 +112,7 @@ const Sidebar = () => {
                         </li>
                         <li className='relative'>
                             <NavLink
-                                to="/user"
+                                to="admin/user"
                                 className={({ isActive }) =>
                                     isActive ? 'bg-gray-700 w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out' : 'w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out'
                                 }
@@ -127,7 +127,7 @@ const Sidebar = () => {
                     <ul>
                         <li className='relative'>
                             <NavLink
-                                to="/authentication"
+                                to="admin/authentication"
                                 className={({ isActive }) =>
                                     isActive ? 'bg-gray-700 w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out' : 'w-full text-sm font-semibold text-gray-800 inline-flex items-center py-3 transition duration-150 ease-in-out'
                                 }
