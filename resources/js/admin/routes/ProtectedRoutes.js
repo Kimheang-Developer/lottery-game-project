@@ -1,18 +1,14 @@
 import React from 'react'
-import {Navigate, Outlet} from 'react-router-dom'
+import { useLocation, Navigate } from "react-router-dom";
 
-const useAuth=()=>{
-    const user=localStorage.getItem('user')
-    if(user){
-      return true
-    } else {
-      return false
+const ProtectedRoutes = ({ children }) => {
+    let auth = useAuth();
+    let location = useLocation();
+
+    if (!auth.user) {
+        return <Navigate to="/admin/login" state={{ from: location }} replace />;
     }
-  }
-
-const ProtectedRoutes = (props) => {
-    const auth = useAuth()
-    return auth ? <Outlet/> : <Navigate to="/login"/>
+    return children;
 }
 
 export default ProtectedRoutes
