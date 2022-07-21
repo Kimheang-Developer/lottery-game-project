@@ -5,7 +5,7 @@ import { IoChevronBackOutline } from "react-icons/io5";
 const Header = ({ title, redirect, visibility }) => {
     return (
         <>
-            <div className={`bg-white border-b border-b-gray-100 py-4 max-w-none sm:max-w-md mx-auto px-2 ${visibility}`}>
+            <div className={`bg-white border-b border-b-gray-100 py-4 max-w-none mx-auto px-2 ${visibility}`}>
                 <div className="flex items-center justify-between">
                     <Link to={redirect}>
                         <IoChevronBackOutline className='text-gray-500'/>

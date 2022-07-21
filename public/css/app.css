@@ -785,6 +785,9 @@ video {
 .w-12 {
   width: 3rem;
 }
+.w-96 {
+  width: 24rem;
+}
 .max-w-none {
   max-width: none;
 }
@@ -1427,6 +1430,10 @@ video {
   }
 }
 @media (min-width: 640px) {
+
+  .sm\:w-96 {
+    width: 24rem;
+  }
 
   .sm\:max-w-md {
     max-width: 28rem;

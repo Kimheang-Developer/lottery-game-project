@@ -17,7 +17,6 @@ import Withdraw from '../pages/user/Withdraw'
 import TopUp from '../pages/user/TopUp'
 import NotFound from '../pages/NotFound'
 
-
 const Index = () => {
     return (
         <BrowserRouter>

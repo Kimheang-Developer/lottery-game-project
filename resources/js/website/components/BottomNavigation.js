@@ -11,7 +11,7 @@ import UserActive from '../assets/img/icon/active_user.png'
 
 const BottomNavigation = () => {
     return (
-        <div className='bg-white border-t border-t-gray-100 w-full py-2 max-w-none sm:max-w-md mx-auto fixed bottom-0 left-0 right-0'>
+        <div className='bg-white border-t border-t-gray-100 w-full py-2 max-w-none mx-auto fixed bottom-0 left-0 right-0'>
             <div className='flex items-center justify-between flex-row flex-nowrap'>
                 <NavLink to="/" className='group flex items-center justify-center flex-col basis-1/4 transition duration-200 ease-in-out'>
                     <img src={HomeInactive} alt='' className='w-8 group-hover:hidden'/>
