@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -43,36 +44,34 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $this->validateLogin($request);
-        if ($this->attemptLogin($request)) {
-            $user = $this->guard()->user();
-            $api_token = Str::random(60);
-            $user->api_token = $api_token;
-            $user->save();
-            return response()->json([
-                'user' => $user->toArray(),
-            ]);
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        if($validator->fails()) {
+            return response()->json(['status' => false, 'message' => 'fix errors', 'errors' => $validator->errors()], 500);
         }
-        return $this->sendFailedLoginResponse($request);
+
+        $credentials = $request->only('username', 'password');
+
+        if(auth()->attempt($credentials, $request->filled('remember'))) {
+            return response()->json(['status' => true, 'user' => auth()->user()]);
+        }
+
+        return response()->json(['status' => false, 'message' => 'invalid username or password'], 500);
     }
 
     public function logout(Request $request)
     {
-        $user = Auth::guard('api')->user();
-        if ($user) {
-            $user->api_token = null;
-            $user->save();
-            return response()->json(['data' => 'User logged out.'], 200);
-        }
-        return response()->json(['state' => 0, 'message' => 'Unauthenticated'], 401);
+        auth('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return response()->json(['status' => true, 'message' => 'logged out']);
     }
 
-    public function checkAuth(Request $request)
+    public function profile()
     {
-        $user = Auth::guard('api')->user();
-        if ($user && $user->is_admin) {
-            return response()->json(['state' => 1], 200);
-        }
-        return response()->json(['state' => 0], 401);
+        return response()->json(['status' => true, 'user' => auth()->user()]);
     }
 }

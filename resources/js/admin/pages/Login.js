@@ -1,28 +1,26 @@
 import React, { useState } from 'react'
 
-const Login = (props) => {
+const Login = () => {
 
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-
-    const handleLogin = (e) => {
-        e.preventDefault();
-    }
 
     return (
         <>
             <div className='w-screen h-screen flex justify-center items-center'>
                 <form className='p-10 bg-white rounded-xl space-y-5' autoComplete='off'>
                     <div className="flex flex-col space-y-2">
-                        <label className="text-sm font-light" for="email">Username</label>
-                        <input type="email" className="w-96 px-3 py-2 rounded-md border border-slate-400" name="username" autoFocus value={username} onChange={e => setUsername(e.target.value)}/>
+                        <label className="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                        <input type="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="username" autoFocus/>
                     </div>
                     <div className="flex flex-col space-y-2">
-                        <label className="text-sm font-light" for="password">Password</label>
-                        <input type="password" className="w-96 px-3 py-2 rounded-md border border-slate-400" name="password"/>
+                        <label className="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+                        <input type="password" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="password"/>
                     </div>
-                    <button class="w-full px-10 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 hover:drop-shadow-md duration-300 ease-in" type="submit">Login</button>
-                    <p class="text-right"><a class="text-blue-600 text-sm font-light hover:underline" href="https://www.kindacode.com">Forget Password?</a></p>
+                    <div class="flex items-center justify-between">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Sign In
+                    </button>
+                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">Forgot Password?</a>
+                    </div>
                 </form>
             </div>
         </>

@@ -29,10 +29,12 @@
         "@tailwindui/react": "^0.1.1",
         "country-flag-icons": "^1.5.5",
         "laravel-mix": "^6.0.49",
+        "react-cookie": "^4.1.1",
         "react-countdown": "^2.3.2",
         "react-icons": "^4.4.0",
         "react-intl-tel-input": "^8.2.0",
         "react-multi-lang": "^2.1.1",
-        "react-router-dom": "^6.3.0"
+        "react-router-dom": "^6.3.0",
+        "sweetalert2": "^11.4.23"
     }
 }

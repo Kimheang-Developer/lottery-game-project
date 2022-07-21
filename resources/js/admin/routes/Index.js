@@ -23,9 +23,6 @@ import NewWithdrawForm from '../pages/withdraw/NewWithdrawForm'
 
 import Layout from '../layouts/Layout';
 
-import ProtectedRoutes from '../routes/ProtectedRoutes'
-import PublicRoutes from '../routes/PublicRoutes'
-
 const Index = () => {
     return (
         <BrowserRouter>

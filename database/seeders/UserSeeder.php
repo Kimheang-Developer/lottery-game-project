@@ -29,8 +29,6 @@ class UserSeeder extends Seeder
             'username' => 'admin',
             'phone_number' => '011263262',
             'password' => Hash::make('password'),
-            'api_token' => Str::random(60),
-            'is_admin' => 1,
         ]);
 
         $joe = User::create([
@@ -38,8 +36,6 @@ class UserSeeder extends Seeder
             'username' => 'joe',
             'phone_number' => '011263262',
             'password' => Hash::make('password'),
-            'api_token' => Str::random(60),
-            'is_admin' => 1,
         ]);
 
         $jame = User::create([
@@ -47,8 +43,6 @@ class UserSeeder extends Seeder
             'username' => 'jame',
             'phone_number' => '011263262',
             'password' => Hash::make('password'),
-            'api_token' => Str::random(60),
-            'is_admin' => 1,
         ]);
 
         $admin->roles()->attach($adminRole);

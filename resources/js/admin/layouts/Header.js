@@ -81,7 +81,7 @@ const Header = () => {
                                 <div className='flex items-center h-full'>
                                     <img className="object-cover w-10 h-10 rounded-full border-2 border-white border-opacity-10 shadow-lg" src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82" alt=""/>
                                     <div className='hidden md:block ml-3'>
-                                        <div className='text-slate-300 text-sm truncate text-left font-medium'>Nicolas Cage</div>
+                                        <div className='text-slate-300 text-sm truncate text-left font-medium'>John Doe</div>
                                         <div className='text-xs text-slate-400'>Software Engineer</div>
                                     </div>
                                 </div>
