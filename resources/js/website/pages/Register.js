@@ -10,28 +10,31 @@ const Register = () => {
     const [phone, setPhone] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [cpassword, setCpassword] = useState('');
 
-    const registerSubmit = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
-        
-        axios.post('http://localhost:8000/api/register', {
-            name,
-            phone,
-            username,
-            password,
-        }).then(response => {
-            console.log(response.data.user);
-            if(response.data.user) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: 'Register Success!',
-                })
-                navigate('/login');
-            }
-        }).catch(error => {
-            console.log(error);
-            
+
+        axios.get('/sanctum/csrf-cookie').then(response => {
+            axios.post('http://localhost:8000/api/register', {
+                name,
+                phone,
+                username,
+                password,
+            }).then(response => {
+                console.log(response.data.user);
+                if(response.data.user) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Register Success!',
+                    })
+                    navigate('/login');
+                }
+            }).catch(error => {
+                console.log(error);
+                
+            });
         });
     }
 
@@ -41,7 +44,7 @@ const Register = () => {
                 <div className="">
                     <div className="px-8 py-6 text-left">
                         <h3 className="text-2xl font-bold text-center">Creat Account</h3>
-                        <form onSubmit={registerSubmit} autoComplete='off'>
+                        <form onSubmit={handleRegister} autoComplete='off'>
                             <div className="mt-4">
                                 <div className='flex items-start justify-center flex-col flex-wrap mb-2'>
                                     <label className="text-xs font-medium block">Name</label>
@@ -58,6 +61,10 @@ const Register = () => {
                                 <div className='flex items-start justify-center flex-col flex-wrap mb-2'>
                                     <label className="text-xs font-medium block">Password</label>
                                     <input type="password" className="text-sm bg-white border border-slate-200 rounded w-full h-10 px-2 mt-2 focus:outline-none" name="password" value={password} onChange={e => setPassword(e.target.value)}/>
+                                </div>
+                                <div className='flex items-start justify-center flex-col flex-wrap mb-2'>
+                                    <label className="text-xs font-medium block">Confirm Password</label>
+                                    <input type="password" className="text-sm bg-white border border-slate-200 rounded w-full h-10 px-2 mt-2 focus:outline-none" name="c_password" value={cpassword} onChange={e => setCpassword(e.target.value)}/>
                                 </div>
                                 <div>
                                     <button type='submit' className="text-white font-medium text-sm ext-center bg-blue-600 rounded w-full px-5 py-2.5 mt-5 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-150 ease-in">Create Account</button>

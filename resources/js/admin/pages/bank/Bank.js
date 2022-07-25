@@ -20,19 +20,19 @@ const Bank = () => {
                     </thead>
                     <tbody>
                         <tr className="bg-white border-b hover:bg-gray-50">
-                            <td scope="row" class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap">
-                                <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image"/>
-                                <div class="pl-3">
-                                    <div class="text-base font-semibold">Neil Sims</div>
-                                    <div class="font-normal text-gray-500">neil.sims@flowbite.com</div>
+                            <td scope="row" className="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap">
+                                {/* <img className="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image"/> */}
+                                <div className="pl-3">
+                                    <div className="text-base font-semibold">Neil Sims</div>
+                                    <div className="font-normal text-gray-500">neil.sims@flowbite.com</div>
                                 </div>  
                             </td>
-                            <td class="py-4 px-6">
+                            <td className="py-4 px-6">
                                 SEO Specialist
                             </td>
-                            <td class="py-4 px-6">
-                                <div class="flex items-center">
-                                    <div class="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div> Online
+                            <td className="py-4 px-6">
+                                <div className="flex items-center">
+                                    <div className="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div> Online
                                 </div>
                             </td>
                             <td className="py-4 px-6">
@@ -43,17 +43,17 @@ const Bank = () => {
                             </td>
                         </tr>
                         <tr className="bg-white border-b hover:bg-gray-50">
-                            <td scope="row" class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap">
-                                <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image"/>
-                                <div class="pl-3">
-                                    <div class="text-base font-semibold">Neil Sims</div>
-                                    <div class="font-normal text-gray-500">neil.sims@flowbite.com</div>
+                            <td scope="row" className="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap">
+                                {/* <img className="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image"/> */}
+                                <div className="pl-3">
+                                    <div className="text-base font-semibold">Neil Sims</div>
+                                    <div className="font-normal text-gray-500">neil.sims@flowbite.com</div>
                                 </div>  
                             </td>
-                            <td class="py-4 px-6">
+                            <td className="py-4 px-6">
                                 SEO Specialist
                             </td>
-                            <td class="py-4 px-6">
+                            <td className="py-4 px-6">
                                 
                             </td>
                             <td className="py-4 px-6">

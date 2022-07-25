@@ -37,17 +37,19 @@ class WithdrawController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth("api")->user()->is_admin) {
-            return response()->json(['message' => 'Unauthorize'], 500);
-        }
-        $this->validate($request, [
-            'amount' => 'required',
+        $validated = $request->validate([
+            'amount' => 'required'
         ]);
+
         $withdraw = new Withdraw();
         $withdraw->user_id = Auth::user()->id;
         $withdraw->amount = $request->input('amount');
         $withdraw->save();
-        return response()->json(['data' => $withdraw, 'message' => 'Created successfully'], 201);
+
+        return response()->json([
+            'data' => $withdraw,
+            'message' => 'Created successfully'
+        ], 201);
     }
 
     /**
@@ -58,8 +60,7 @@ class WithdrawController extends Controller
      */
     public function show($id)
     {
-        $withdraw = Withdraw::findOrFail($id);
-        return response()->json(['data' => $withdraw], 200);
+        //
     }
 
     /**
@@ -70,7 +71,8 @@ class WithdrawController extends Controller
      */
     public function edit($id)
     {
-        //
+        $withdraw = Withdraw::findOrFail($id);
+        return response()->json(['data' => $withdraw], 200);
     }
 
     /**
@@ -82,9 +84,6 @@ class WithdrawController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if(!auth("api")->user()->is_admin) {
-            return response()->json(['message' => 'Unauthorize'], 500);
-        }
         $withdraw = Withdraw::findOrFail($id);
         $this->validate($request, [
             'amount' => 'required',
@@ -103,9 +102,6 @@ class WithdrawController extends Controller
      */
     public function destroy($id)
     {
-        if(!auth("api")->user()->is_admin) {
-            return response()->json(['message' => 'Unauthorize'], 500);
-        }
         $withdraw = Withdraw::findOrFail($id);
         $withdraw->delete();
         return response()->json(['message' => 'Deleted successfully'], 200);

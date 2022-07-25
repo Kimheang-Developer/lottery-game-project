@@ -30,6 +30,7 @@ const Index = () => {
                 <Routes>
                     <Route index path="admin/dashboard" element={<Dashboard />} />
                     <Route path="admin/game" element={<Game />} />
+                    
                     <Route path="admin/topup" element={<TopUp />}>
                         <Route path=":topupId" element={<TopUp />} />
                         <Route path=":topupId/edit" element={<EditTopUp />} />

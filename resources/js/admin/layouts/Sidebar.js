@@ -41,7 +41,7 @@ const Sidebar = () => {
             {/* Desktop sidebar  */}
             <aside className='z-20 hidden w-64 overflow-y-auto bg-gray-900 md:block flex-shrink-0' ref={container}>
                 <div className='pb-4 text-gray-500'>
-                    <Link to='/dashboard' className='text-lg font-bold text-gray-400 flex items-center justify-center py-5'>Windmill</Link>
+                    <Link to='admin/dashboard' className='text-lg font-bold text-gray-400 flex items-center justify-center py-5'>Windmill</Link>
                     <ul>
                         <li className='relative'>
                             <NavLink

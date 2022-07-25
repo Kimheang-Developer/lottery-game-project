@@ -2636,12 +2636,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _routes_Index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routes/Index */ "./resources/js/admin/routes/Index.js");
-/* harmony import */ var react_multi_lang__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-multi-lang */ "./node_modules/react-multi-lang/lib/index.js");
-/* harmony import */ var react_multi_lang__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_multi_lang__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _assets_lang_en_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/lang/en.json */ "./resources/js/admin/assets/lang/en.json");
-/* harmony import */ var _assets_lang_kh_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/lang/kh.json */ "./resources/js/admin/assets/lang/kh.json");
-/* harmony import */ var _assets_lang_th_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./assets/lang/th.json */ "./resources/js/admin/assets/lang/th.json");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_multi_lang__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-multi-lang */ "./node_modules/react-multi-lang/lib/index.js");
+/* harmony import */ var react_multi_lang__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_multi_lang__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _assets_lang_en_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/lang/en.json */ "./resources/js/admin/assets/lang/en.json");
+/* harmony import */ var _assets_lang_kh_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./assets/lang/kh.json */ "./resources/js/admin/assets/lang/kh.json");
+/* harmony import */ var _assets_lang_th_json__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./assets/lang/th.json */ "./resources/js/admin/assets/lang/th.json");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -2651,24 +2653,74 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,react_multi_lang__WEBPACK_IMPORTED_MODULE_3__.setDefaultTranslations)({
-  en: _assets_lang_en_json__WEBPACK_IMPORTED_MODULE_4__,
-  kh: _assets_lang_kh_json__WEBPACK_IMPORTED_MODULE_5__,
-  th: _assets_lang_th_json__WEBPACK_IMPORTED_MODULE_6__
+
+(0,react_multi_lang__WEBPACK_IMPORTED_MODULE_4__.setDefaultTranslations)({
+  en: _assets_lang_en_json__WEBPACK_IMPORTED_MODULE_5__,
+  kh: _assets_lang_kh_json__WEBPACK_IMPORTED_MODULE_6__,
+  th: _assets_lang_th_json__WEBPACK_IMPORTED_MODULE_7__
 });
-(0,react_multi_lang__WEBPACK_IMPORTED_MODULE_3__.setDefaultLanguage)('en');
+(0,react_multi_lang__WEBPACK_IMPORTED_MODULE_4__.setDefaultLanguage)('en');
+(axios__WEBPACK_IMPORTED_MODULE_3___default().defaults.baseURL) = "http://localhost:8000";
+(axios__WEBPACK_IMPORTED_MODULE_3___default().defaults.headers.post["Content-Type"]) = 'application/json';
+(axios__WEBPACK_IMPORTED_MODULE_3___default().defaults.headers.post.Accept) = 'application/json';
+(axios__WEBPACK_IMPORTED_MODULE_3___default().defaults.withCredentials) = true;
 
 var App = function App() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_routes_Index__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_routes_Index__WEBPACK_IMPORTED_MODULE_2__["default"], {})
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(App, {}), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(App, {}), document.getElementById('app'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/admin/components/Card.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/components/Card.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var Card = function Card(_ref) {
+  var title = _ref.title,
+      total = _ref.total,
+      iconName = _ref.iconName;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "flex items-center p-4 bg-white rounded-lg shadow-sm",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "p-3 mr-4 text-blue-500 bg-blue-100 rounded-full",
+        children: iconName
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "mb-2 text-sm font-medium text-gray-600",
+          children: title
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "text-lg font-semibold text-gray-700",
+          children: total
+        })]
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Card);
 
 /***/ }),
 
@@ -3021,7 +3073,7 @@ var Sidebar = function Sidebar() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "pb-4 text-gray-500",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-          to: "/dashboard",
+          to: "admin/dashboard",
           className: "text-lg font-bold text-gray-400 flex items-center justify-center py-5",
           children: "Windmill"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
@@ -3247,44 +3299,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Card */ "./resources/js/admin/components/Card.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 
 var Dashboard = function Dashboard() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      className: "my-6 text-2xl font-semibold text-gray-700",
+      children: "Dashboard"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "flex items-center p-4 bg-white rounded-lg shadow-sm",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "p-3 mr-4 text-blue-500 bg-blue-100 rounded-full"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-            className: "mb-2 text-sm font-medium text-gray-600",
-            children: "Total clients"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-            className: "text-lg font-semibold text-gray-700",
-            children: "6389"
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "flex items-center p-4 bg-white rounded-lg shadow-sm",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "p-3 mr-4 text-blue-500 bg-blue-100 rounded-full"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-            className: "mb-2 text-sm font-medium text-gray-600",
-            children: "Total clients"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-            className: "text-lg font-semibold text-gray-700",
-            children: "6389"
-          })]
-        })]
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        title: "Total clients",
+        total: 6389
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        title: "Account balance",
+        total: "$ 46,760.89"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        title: "Register Today",
+        total: 6389
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        title: "Total clients",
+        total: 6389
       })]
-    })
+    })]
   });
 };
 
@@ -3422,32 +3465,28 @@ var Bank = function Bank() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tbody", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
             className: "bg-white border-b hover:bg-gray-50",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("td", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
               scope: "row",
-              "class": "flex items-center py-4 px-6 text-gray-900 whitespace-nowrap",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-                "class": "w-10 h-10 rounded-full",
-                src: "/docs/images/people/profile-picture-1.jpg",
-                alt: "Jese image"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                "class": "pl-3",
+              className: "flex items-center py-4 px-6 text-gray-900 whitespace-nowrap",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "pl-3",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  "class": "text-base font-semibold",
+                  className: "text-base font-semibold",
                   children: "Neil Sims"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  "class": "font-normal text-gray-500",
+                  className: "font-normal text-gray-500",
                   children: "neil.sims@flowbite.com"
                 })]
-              })]
+              })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-              "class": "py-4 px-6",
+              className: "py-4 px-6",
               children: "SEO Specialist"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-              "class": "py-4 px-6",
+              className: "py-4 px-6",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                "class": "flex items-center",
+                className: "flex items-center",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  "class": "h-2.5 w-2.5 rounded-full bg-green-400 mr-2"
+                  className: "h-2.5 w-2.5 rounded-full bg-green-400 mr-2"
                 }), " Online"]
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
@@ -3467,28 +3506,24 @@ var Bank = function Bank() {
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
             className: "bg-white border-b hover:bg-gray-50",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("td", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
               scope: "row",
-              "class": "flex items-center py-4 px-6 text-gray-900 whitespace-nowrap",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-                "class": "w-10 h-10 rounded-full",
-                src: "/docs/images/people/profile-picture-1.jpg",
-                alt: "Jese image"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                "class": "pl-3",
+              className: "flex items-center py-4 px-6 text-gray-900 whitespace-nowrap",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "pl-3",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  "class": "text-base font-semibold",
+                  className: "text-base font-semibold",
                   children: "Neil Sims"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  "class": "font-normal text-gray-500",
+                  className: "font-normal text-gray-500",
                   children: "neil.sims@flowbite.com"
                 })]
-              })]
+              })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-              "class": "py-4 px-6",
+              className: "py-4 px-6",
               children: "SEO Specialist"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-              "class": "py-4 px-6"
+              className: "py-4 px-6"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
               className: "py-4 px-6",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {

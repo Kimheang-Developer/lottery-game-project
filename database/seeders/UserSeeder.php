@@ -31,6 +31,8 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
+        $admin->createToken('Kimheang Sim_AdminToken', ['server:admin'])->plainTextToken;
+
         $joe = User::create([
             'name' => 'Joe',
             'username' => 'joe',

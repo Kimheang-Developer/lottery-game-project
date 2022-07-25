@@ -2,9 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\BankController;
-use App\Http\Controllers\Api\LoginController;
-use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\AdminLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +16,13 @@ use App\Http\Controllers\Api\RegisterController;
 |
 */
 
-Route::post('login', [LoginController::class, 'login'])->name('login');
-Route::post('register', [RegisterController::class, 'register'])->name('register');
+// Route::post('login', [AuthController::class, 'login'])->name('login');
+// Route::post('register', [AuthController::class, 'register'])->name('register');
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::group(['as' => 'api.', 'namespace' => 'App\Http\Controllers\Api'], function() {
+Route::post('admin/login', [AdminLoginController::class, 'login'])->name('api.admin.login');
+
+Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+    Route::group(['as' => 'api.admin.', 'prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Api'], function() {
         Route::apiResources([
             'bank' => BankController::class,
             'user' => UserController::class,
@@ -29,7 +30,11 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
             'topup' => TopUpController::class,
         ]);
     });
-    
-    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
-    Route::post('profile', [LoginController::class, 'profile'])->name('profile');
+
+    Route::post('admin/login', [AdminLoginController::class, 'login'])->name('api.admin.login');
+});
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::post('profile', [AuthController::class, 'profile'])->name('profile');
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
