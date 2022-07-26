@@ -1,9 +1,16 @@
-import React from 'react'
-import Header from './Header'
-import Sidebar from './Sidebar'
+import { Navigate, useOutlet } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import Header from '../layouts/Header'
+import Sidebar from "./Sidebar";
 
+export const ProtectedLayout = () => {
+    const { user } = useAuth();
+    const outlet = useOutlet();
 
-const Layout = ({ children }) => {
+    if (!user) {
+        return <Navigate to="admin/login" />;
+    }
+
     return (
         <>
             <div className='flex h-screen bg-gray-50'>
@@ -12,13 +19,11 @@ const Layout = ({ children }) => {
                     <Header/>
                     <main className='bg-slate-100 h-full pb-16 overflow-y-auto'>
                         <div className='container px-6 mx-auto grid'>
-                            { children }
+                            {outlet}
                         </div>
                     </main>
                 </div>
             </div>
         </>
-    )
+    );
 }
-
-export default Layout

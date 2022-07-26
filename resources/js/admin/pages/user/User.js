@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 const User = () => {
-    const [users, setUsers] = useState([])
+    const [user, setUser] = useState([])
 
     useEffect(() => {
-        const fetchUser = async () => {
-            const res = await fetch('http://localhost:8000/api/user')
-            const data = await res.json();
-            //console.log(data)
-            setUsers(data.data)
-        }
-        fetchUser();
+        axios.get(`api/admin/user`).then(res => {
+            if (res.data.status === 200) {
+                //console.log(res.data.user)
+                setUser(res.data.user)
+            }
+        })
     }, [])
 
     const deleteUser = async (id) => {
@@ -33,7 +32,7 @@ const User = () => {
             return;
         }
 
-        await axios.delete(`http://localhost:8000/api/user/${id}`).then(({data}) => {
+        await axios.delete(`http://localhost:8000/api/admin/user/${id}`).then(({data}) => {
             Swal.fire({
                 icon: 'success',
                 title: 'Success',
@@ -62,9 +61,10 @@ const User = () => {
             </div>
             <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
                 <table className="w-full text-sm text-left text-gray-500">
-                    <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                    <thead className="text-xs text-gray-700 bg-gray-50">
                         <tr>
-                            <th scope="col" className="py-3 px-6">Name</th>
+                            <th scope="col" className="py-3 px-6 text-xs font-semibold capitalize">Name</th>
+                            <th scope="col" className="py-3 px-6">Date Created</th>
                             <th scope="col" className="py-3 px-6">Phone Number</th>
                             <th scope="col" className="py-3 px-6">Status</th>
                             <th scope="col" className="py-3 px-6">Action</th>
@@ -72,33 +72,34 @@ const User = () => {
                     </thead>
                     <tbody>
                         {
-                            users.length > 0 &&
-                            users.map((user, key) => {
-                            return (
-                                <>
-                                    <tr className="bg-white border-b hover:bg-gray-50" key={key}>
-                                        <td scope="row" className="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap">
-                                            {/* <img className="w-10 h-10 rounded-full" src="#" alt="Jese image"/> */}
-                                            <div className="pl-3">
-                                                <div className="text-base font-semibold">{user.name}</div>
-                                            </div>  
-                                        </td>
-                                        <td className="py-4 px-6">{user.phone_number}</td>
-                                        <td className="py-4 px-6">
-                                            <div className="flex items-center">
-                                                <div className="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div> {user.status}
-                                            </div>
-                                        </td>
-                                        <td className="py-4 px-6">
-                                            <div className="flex items-center space-x-3">
-                                                <Link to={`${user.id}/edit`} className="font-medium text-blue-600 hover:underline">Edit</Link>
-                                                <button onClick={()=>deleteUser(user.id)} className="font-medium text-red-600 hover:underline">Remove</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </>
-                            )
-                        })}
+                            user.length > 0 &&
+                            user.map((item) => {
+                                return (
+                                    <>
+                                        <tr className="bg-white border-b hover:bg-gray-50" key={item.id}>
+                                            <td scope="row" className="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap">
+                                                {/* <img className="w-10 h-10 rounded-full" src="#" alt="Jese image"/> */}
+                                                <div className="pl-3">
+                                                    <div className="text-sm font-semibold">{item.name}</div>
+                                                </div>  
+                                            </td>
+                                            <td className="py-4 px-6">{item.phone_number}</td>
+                                            <td className="py-4 px-6">
+                                                <div className="flex items-center">
+                                                    <div className="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div> {item.status}
+                                                </div>
+                                            </td>
+                                            <td className="py-4 px-6">
+                                                <div className="flex items-center space-x-3">
+                                                    <Link to={`${item.id}/edit`} className="font-medium text-blue-600 hover:underline">Edit</Link>
+                                                    <button onClick={()=>deleteUser(item.id)} className="font-medium text-red-600 hover:underline">Remove</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </>
+                                )
+                            })
+                        }
                     </tbody>
                 </table>
             </div>

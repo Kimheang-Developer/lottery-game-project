@@ -16,11 +16,10 @@ use App\Http\Controllers\Api\AdminLoginController;
 |
 */
 
-// Route::post('login', [AuthController::class, 'login'])->name('login');
-// Route::post('register', [AuthController::class, 'register'])->name('register');
-
+// ============================= admin public route ============================= //
 Route::post('admin/login', [AdminLoginController::class, 'login'])->name('api.admin.login');
 
+// ============================= admin protected route ============================= //
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::group(['as' => 'api.admin.', 'prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Api'], function() {
         Route::apiResources([
@@ -31,8 +30,11 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
         ]);
     });
 
-    Route::post('admin/login', [AdminLoginController::class, 'login'])->name('api.admin.login');
+    Route::post('admin/logout', [AdminLoginController::class, 'logout'])->name('api.admin.logout');
 });
+
+Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::post('register', [AuthController::class, 'register'])->name('register');
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('profile', [AuthController::class, 'profile'])->name('profile');
